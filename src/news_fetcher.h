@@ -4,7 +4,8 @@
 #include <curl/curl.h>
 #include "rapidjson/document.h"
 
-struct Article {
+struct Article
+{
     std::string title;
     std::string author;
     std::string description;
@@ -13,15 +14,16 @@ struct Article {
     std::string content;
 };
 
-class NewsFetcher {
+class NewsFetcher
+{
 public:
     NewsFetcher();
     ~NewsFetcher();
-    std::vector<Article> fetchLatestNews(const std::string& apiUrl);
+    std::vector<Article> fetchLatestNews(const std::string &apiUrl);
 
 private:
-    CURL* curl;
-    static size_t WriteCallback(void* contents, size_t size, size_t nmemb, void* userp);
-    struct curl_slist* headers;
-    std::vector<Article> parseJsonResponse(const std::string& jsonResponse);
+    CURL *curl;
+    static size_t WriteCallback(void *contents, size_t size, size_t nmemb, void *userp);
+    struct curl_slist *headers;
+    std::vector<Article> parseJsonResponse(const std::string &jsonResponse);
 };
