@@ -25,7 +25,7 @@ int main()
                 textToAnalyze = article.description;
                 if (textToAnalyze.empty())
                 {
-                    textToAnalyze = article.title;
+                    textToAnalyze = article.content;
                 }
             }
 
